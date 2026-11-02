@@ -5,3 +5,4 @@
 - Login page shows the ShopEasy heading
 - Wrong password shows an error (to automate)
 - Locked account shows a message
+- Very long email is rejected
