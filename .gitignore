@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Test output
+test-results/
+playwright-report/
+allure-results/
+*.log
+
+# Secrets: never commit these
+.env
+
+# Java / Maven projects
+target/
+
+# Editors and OS
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.DS_Store
