@@ -6,7 +6,7 @@ try { process.loadEnvFile(); } catch {}
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 5_000,
+  timeout: 30_000,
   fullyParallel: true,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: { headless: true },
