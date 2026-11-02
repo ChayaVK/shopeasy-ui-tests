@@ -12,3 +12,11 @@ test('valid user can log in', async ({ page }) => {
   await page.getByRole('button', { name: 'Login' }).click();
   await expect(page.getByRole('status')).toHaveText('Welcome back!');
 });
+
+test('login button is disabled until a valid email is entered', async ({ page }) => {
+  await page.goto(loginPage);
+  const button = page.getByRole('button', { name: 'Login' });
+  await expect(button).toBeDisabled();
+  await page.getByLabel('Email').fill('shopper@example.com');
+  await expect(button).toBeEnabled();
+});
