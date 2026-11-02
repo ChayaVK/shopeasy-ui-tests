@@ -23,5 +23,5 @@ test('login button is disabled until a valid email is entered', async ({ page })
 
 test('login page shows the ShopEasy heading', async ({ page }) => {
   await page.goto(loginPage);
-  await expect(page.getByText('ShopEasy Login')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'ShopEasy Login' })).toBeVisible();
 });
