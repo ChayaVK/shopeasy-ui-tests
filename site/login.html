@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>ShopEasy - Login</title></head>
+<body>
+  <h1>ShopEasy Login</h1>
+  <form id="login">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="you@example.com">
+    <label for="password">Password</label>
+    <input id="password" type="password">
+    <button id="login-btn" type="submit" disabled>Login</button>
+  </form>
+  <p id="message" role="status"></p>
+  <script>
+    const email = document.getElementById('email');
+    const btn = document.getElementById('login-btn');
+    email.addEventListener('input', () => {
+      btn.disabled = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value);
+    });
+    document.getElementById('login').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      const message = document.getElementById('message');
+      if (password === '') message.textContent = 'Please enter your password';
+      else message.textContent = password === 'Test@123' ? 'Welcome back!' : 'Invalid email or password';
+    });
+  </script>
+</body>
+</html>
