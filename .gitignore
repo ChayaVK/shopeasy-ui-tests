@@ -19,3 +19,4 @@ target/
 !.vscode/settings.json
 !.vscode/extensions.json
 .DS_Store
+settings.local.json
