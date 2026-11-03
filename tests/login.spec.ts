@@ -33,3 +33,9 @@ test('wrong password shows an error', async ({ page }) => {
   await page.getByRole('button', { name: 'Login' }).click();
   await expect(page.getByRole('status')).toHaveText('Invalid email or password');
 });
+
+test('empty password shows an error', async ({ page }) => {
+  await page.getByLabel('Email').fill('shopper@example.com');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await expect(page.getByRole('status')).toHaveText('Please enter your password');
+});
