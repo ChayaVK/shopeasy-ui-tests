@@ -26,3 +26,16 @@ test('login button is disabled until a valid email is entered', async ({ page })
 test('login page shows the ShopEasy heading', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'ShopEasy Login' })).toBeVisible();
 });
+
+test('wrong password shows an error', async ({ page }) => {
+  await page.getByLabel('Email').fill('shopper@example.com');
+  await page.getByLabel('Password').fill('not-the-password');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await expect(page.getByRole('status')).toHaveText('Invalid email or password');
+});
+
+test('empty password asks for a password', async ({ page }) => {
+  await page.getByLabel('Email').fill('shopper@example.com');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await expect(page.getByRole('status')).toHaveText('Please enter your password');
+});
